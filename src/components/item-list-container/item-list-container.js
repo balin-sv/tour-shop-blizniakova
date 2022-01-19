@@ -1,10 +1,11 @@
 import React from "react";
+import ItemCount from "../item-count";
 import "./item-list-container.css";
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ data, onAddHandler }) => {
   return (
     <div className="item-container d-flex container mt-5 justify-content-center">
-      <h2>Pronto viene la lista de nuestos tours!!!</h2>
+      <ItemCount data={data} onAdd={onAddHandler} />
     </div>
   );
 };

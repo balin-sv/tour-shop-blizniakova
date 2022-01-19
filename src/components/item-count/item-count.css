@@ -1,0 +1,40 @@
+.counter-box {
+  background-color: rgb(97, 111, 119);
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  border-radius: 2%;
+}
+.row-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.row-align {
+  align-self: center;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.column-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.counter-data {
+  color: rgb(71, 224, 209);
+}
+.counter-number {
+  font-size: 1.2rem;
+}
+.count-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: grey;
+  width: 100px;
+  height: 45px;
+}
