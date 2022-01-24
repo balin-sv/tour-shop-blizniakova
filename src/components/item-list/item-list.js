@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Item from "../item";
-import data from "../../tours.json";
 
 const ItemList = () => {
-  console.log(data[0].id);
+  const [tours, setTours] = useState([]);
 
-  const tousList = data.map((item) => {
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    const res = await fetch("http://localhost:3000/tours.json");
+    const data = await res.json();
+    setTours(data);
+  };
+
+  const tousList = tours.map((item) => {
     return (
       <>
         <Item
@@ -17,8 +26,6 @@ const ItemList = () => {
       </>
     );
   });
-  console.log(tousList);
-
   return <>{tousList}</>;
 };
 
