@@ -1,0 +1,14 @@
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(152, 167, 167);
+  border: solid black 2px;
+  margin: 3px;
+  min-height: 50vh;
+  font-size: 1.2rem;
+}
+
+span {
+  color: rgb(218, 33, 48);
+}

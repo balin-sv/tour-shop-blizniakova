@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppHeader from "../app-header";
+import ItemDetailContainer from "../item-detail-container";
 import ItemListContainer from "../item-list-container";
 
 const App = () => {
@@ -24,7 +25,8 @@ const App = () => {
   return (
     <div>
       <AppHeader />
-      <ItemListContainer />
+      {/* <ItemListContainer /> */}
+      <ItemDetailContainer />
 
       {/* <ItemListContainer data={data} onAddHandler={onAddHandler} /> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
