@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "../cart-widget/cart-widget";
+import logo from "./logo.png";
 
 const AppHeader = () => {
   return (
@@ -24,20 +26,20 @@ const AppHeader = () => {
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <Link to={"/"} className="nav-link">
                   Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
+                  {/* <span class="visually-hidden">(current)</span> */}
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Excurtions
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link to={"/tours"} className="nav-link">
                   Tours
-                </a>
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to={"/tickets"} className="nav-link" href="#">
+                  Tickets
+                </Link>
               </li>
             </ul>
             <form class="d-flex">

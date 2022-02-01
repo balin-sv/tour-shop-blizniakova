@@ -12,3 +12,13 @@
 span {
   color: rgb(218, 33, 48);
 }
+
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+}

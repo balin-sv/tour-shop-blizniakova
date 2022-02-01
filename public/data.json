@@ -1,0 +1,111 @@
+[
+  {
+    "category": "tours",
+    "id": 0,
+    "name": "torres del paine full day",
+    "vacant": 8,
+    "price": 140,
+    "img": "https://rutasafari.cl/wp-content/uploads/2020/06/13-Puma-Huemul-Condor-N%CC%83andu-Guanaco-Patagonia-Fotografia-Paisaje-Naturaleza-Parque-Safari-Chile-Torres-del-Paine-Viaje-Tour-Paquete-1024x690.jpg",
+    "description": "Saldremos desde Puerto Natales hacia el norte, para después de media hora de viaje llegar a nuestra primera parada: el Monumento Natural Cueva del Milodón. Continuaremos rumbo al Parque Nacional Torres del Paine, disfrutando en el camino de la vista de la Laguna Sofía, el Lago Porteño, la Cordillera Prat, el Cerro Mesa, la Sierra del Toro y la Sierra Ballena. Después de 2 horas de viaje, llegaremos al mirador del Lago del Toro, ubicado en la costa sur de este. Desde allí, tendremos una espectacular vista del lago y la Cordillera Paine (también conocida como macizo Paine). Luego, realizaremos una pequeña caminata de 20 minutos, aproximadamente, para llegar a la orilla del Lago Grey, desde donde tendremos otra perspectiva del macizo Paine y los cuernos del Paine, si las condiciones de nubosidad lo permiten. En total, para ir y volver, y caminar en la playa, se recorren alrededor de 3 km por terreno de fácil acceso. Independiente de ello, la caminta es opcional para quien no quiera o no se sienta en condiciones de hacerla."
+  },
+  {
+    "category": "tours",
+    "id": 1,
+    "name": "caminata faro san isidro",
+    "vacant": 10,
+    "price": 100,
+    "img": "https://www.gopatagoniachile.com/wp-content/uploads/2020/03/faro-san-isidro-4.jpg",
+    "description": "Te pasaremos a buscar a tu hotel para salir de Punta Arenas, 75 km al sur hacia un lugar llamado Punta Árbol, siguiendo una ruta costera por el Estrecho de Magallanes. Cuando lleguemos al último punto de la carretera, comenzaremos el Trekking Faro San Isidro con una caminata de 4 km por la playa, trayecto en el cual identificaremos la flora y fauna típica de esta zona de la Patagonia. De la misma manera, tendremos vistas de la isla Dawson y la cordillera Darwin. Cuando lleguemos al sector faro San Isidro, haremos una parada para admirar el lugar, tomar fotografías, descansar y almorzar. Posteriormente, iniciaremos el camino de 4 km de vuelta hasta Punta Árbol. Ya en el camino de regreso, haremos una parada en el Hito Geográfico para tomar algunas fotografías, y luego continuaremos hasta Punta Arenas para terminar la actividad."
+  },
+  {
+    "category": "tours",
+    "id": 2,
+    "name": "glaciar grey caminata",
+    "vacant": 5,
+    "price": 120,
+    "img": "https://bigfootpatagonia.com/wp-content/uploads/brizy/6274/assets/images/iW=657&iH=433&oX=40&oY=0&cW=576&cH=433/Captura-de-pantalla-2019-05-27-a-las-11.05.31.png",
+    "description": "El primer tramo se hace en zodiac con el objetivo de acercarse a la isla llamada Nunatak y así poder caminar sobre esta por alrededor de una hora para así acceder al glaciar de la manera más segura. Después de caminar en la isla, su guía le ayudará a ajustar su equipo de hielo correctamente (piolet, crampones, casco y arnés). Una vez que esté listo podrá comenzar su incomparable aventura de caminata en hielo por cerca de 2.5 horas sobre el glaciar grey, observando las grietas, ríos, lagunas, túneles y cuevas de hielo. Esta caminata requiere estar en buen estado físico."
+  },
+  {
+    "category": "tours",
+    "id": 3,
+    "name": "estancia la peninsula",
+    "vacant": 8,
+    "price": 180,
+    "img": "https://assets.howlanders.com/es/tours-chile/puerto-natales/estancia-la-peninsula/gallery/asado-en-la-peninsula.jpg",
+    "description": "El tour full day en la Estancia La Península es un tour privado para aquellos que quieren sentir como es la vida de un auténtico lugareño en la Patagonia chilena, viviendo de lo que la naturaleza te ofrece y rodeado de animales. En este tour viajarás en lancha hasta la península Antonio Varas, frente a Puerto Natales. Escogeremos una actividad para realizar durante el día, montar a caballo o senderismo. Tras la actividad disfrutarás de una comida típica patagónica: cordero al palo criado en la propia estancia o la opción vegetariana. Finalmente, tendrás una visita guiada donde aprenderás todo sobre el pastoreo de ovejas y sus perros pastores."
+  },
+  {
+    "category": "tours",
+    "id": 4,
+    "name": "pinguino rey full day",
+    "vacant": 10,
+    "price": 100,
+    "img": "http://webbox.imgix.net/images/atjfioezwkoqrlvc/5ff2344d-d6bd-41e8-99e3-7a721c330aa2.jpg",
+    "description": "Excursión de día completo que permite conocer la parte norte de la isla grande de Tierra del Fuego, visitando la pequeña ciudad de Porvenir y la colonia de pingüino rey en bahía Inútil. En el camino podremos apreciar diversas aves, estancias ovejeras y manadas de guanacos, un camélido sudamericano pariente de la llama y la alpaca. Después de unos 114 km de recorrido llegaremos al Parque Pingüino Rey donde reside una colonia permanente de esta especie, la más grande en tamaño después del pingüino emperador. Estos grandes pingüinos son los que mejor bucean y se sumergen hasta grandes profundidades para alcanzar aquellos lugares en donde son frecuentes los bancos de calamares. Durante la temporada de verano es posible también ver algunos polluelos. Saldremos del parque con rumbo hacia Primera Angostura, el punto más angosto del estrecho de solo 5 km de ancho. Allí cruzaremos de regreso al continente en un ferry que toma 20 minutos, navegación tras la cual tomaremos una ruta de unos 200 km hasta llegar a Punta Arenas."
+  },
+  {
+    "category": "tours",
+    "id": 5,
+    "name": "subida a monte tarn",
+    "vacant": 5,
+    "price": 150,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZK9kI7q2YKjkD6Df3hI9R3HQBvqrdttFJ8A&usqp=CAU",
+    "description": "Este trekking  comienza cuando el transporte los recoge en su lugar de alojamiento cerca de las 06:00 am, nos dirigiremos rumbo sur a 70 km de la ciudad de  Punta Arenas, bordeando el Estrecho de Magallanes  hasta llegar a Punta Arbol, punto de partida de nuestra caminata. En condiciones normales, estimamos un tiempo de subida de app. 4 horas para llegar a la cumbre (834 msnm). Durante el ascenso contemplaremos  la flora y fauna de este lugar, estaremos en contacto con especies nativas y seremos testigos de como va cambiando el paisaje a medida que nos acercamos a la cumbre."
+  },
+
+  {
+    "category": "tickets",
+    "id": 6,
+    "name": "navegacion lago argentino",
+    "vacant": 100,
+    "price": 120,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  },
+  {
+    "category": "tickets",
+    "id": 7,
+    "name": "navegacion canal beagle",
+    "vacant": 10,
+    "price": 100,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  },
+  {
+    "category": "tickets",
+    "id": 8,
+    "name": "sobrevuelo nazca",
+    "vacant": 6,
+    "price": 120,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  },
+  {
+    "category": "tickets",
+    "id": 9,
+    "name": "sobrevuelo torres del paine",
+    "vacant": 6,
+    "price": 200,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  },
+  {
+    "category": "tickets",
+    "id": 10,
+    "name": "ticket tren de los recuerdos ",
+    "vacant": 50,
+    "price": 70,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  },
+  {
+    "category": "tickets",
+    "id": 11,
+    "name": "ticket tren trans andino",
+    "vacant": 200,
+    "price": 50,
+    "img": "https://img.freepik.com/vector-gratis/boleto-cine_1459-2366.jpg?size=338&ext=jpg&ga=GA1.2.2069553894.1642204800",
+    "description": "no description for this product"
+  }
+]
