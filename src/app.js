@@ -5,6 +5,7 @@ import Layout from "./components/layout";
 import Tickets from "./components/pages/tickets";
 import Tours from "./components/pages/tours";
 import Detale from "./components/pages/detale";
+import Cart from "./components/pages/cart";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/tours" element={<Tours />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/:category/:id" element={<Detale />} />
+            <Route path="/Cart" element={<Cart />} />
           </Route>
         </Routes>
       </BrowserRouter>
