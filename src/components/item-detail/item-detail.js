@@ -19,7 +19,7 @@ const ItemDetail = ({ data }) => {
           </h3>
           <p>{data.description}</p>
         </div>
-        <ItemCount vacant={data.vacant} />
+        <ItemCount data={data} />
       </div>
     </div>
   );

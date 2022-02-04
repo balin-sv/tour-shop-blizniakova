@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./item-count.css";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
+import { CartContext } from "../context/cart-context";
 
-const ItemCount = ({ vacant }) => {
+const ItemCount = ({ data }) => {
   const [count, setCount] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
+  const value = useContext(CartContext);
 
   useEffect(() => {
     setCount(1);
   }, [startDate]); // para que cambia el valor de count cuando se cambia la fecha
 
   function increnemt() {
-    if (count !== vacant) {
+    if (count !== data.vacant) {
       setCount(count + 1);
     }
   }
@@ -25,7 +27,12 @@ const ItemCount = ({ vacant }) => {
     }
   }
 
-  const goToCart = () => {
+  const goToCart = (data, qty, startDate) => {
+    const newObj = { data: data, qty: qty, date: startDate };
+    console.log(newObj);
+
+    value.addItem(newObj);
+
     navigate("/cart");
   };
 
@@ -35,7 +42,7 @@ const ItemCount = ({ vacant }) => {
         <div className="col-3">
           <div className="row counter-number">
             <span>
-              Cupos disponibles: <span className="vacant">{vacant}</span>
+              Cupos disponibles: <span className="vacant">{data.vacant}</span>
             </span>
           </div>
           <div className="row row-align mt-2">
@@ -58,7 +65,7 @@ const ItemCount = ({ vacant }) => {
           <div className="row mt-2">
             <button
               onClick={() => {
-                goToCart();
+                goToCart(data, count, startDate);
               }}
               className="col-12 btn btn-success"
             >

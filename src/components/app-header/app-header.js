@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "../cart-widget/cart-widget";
+// import { CartContext } from "../context/cart-context";
+// import { CartProvider } from "../context/cart-context";
 import logo from "./logo.png";
 
 const AppHeader = () => {
@@ -9,7 +11,9 @@ const AppHeader = () => {
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
+            {/* <CartProvider> */}
             <CartWidget />
+            {/* </CartProvider> */}
           </a>
           <button
             class="navbar-toggler"
