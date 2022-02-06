@@ -28,8 +28,16 @@ const ItemCount = ({ data }) => {
   }
 
   const goToCart = (data, qty, startDate) => {
-    const newObj = { data: data, qty: qty, date: startDate };
-    console.log(newObj);
+    const newObj = {
+      id: value.generateItemID(),
+      data: data,
+      price: data.price,
+      qty: qty,
+      date: startDate,
+      total: (function () {
+        return data.price * qty;
+      })(),
+    };
 
     value.addItem(newObj);
 

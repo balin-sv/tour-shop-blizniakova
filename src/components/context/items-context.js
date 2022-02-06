@@ -5,9 +5,8 @@ import React from "react";
 export const CartContext = createContext();
 
 //component
-export const CartProvider = ({ children }) => {
+export const ItemsProvaider = ({ children }) => {
   const [items, setItems] = useState([]);
-  const [id, setId] = useState(0);
   const [isEmpty, setIsEmpty] = useState(true);
 
   const addItem = (item) => {
@@ -32,15 +31,14 @@ export const CartProvider = ({ children }) => {
     const newArray = items.filter((item) => {
       return item.id !== id;
     });
-    console.log(newArray);
+
     setItems(newArray);
   };
-
   return (
     <CartContext.Provider
       value={{
-        items,
         isEmpty,
+        items,
         setItems,
         addItem,
         getCartQuantity,

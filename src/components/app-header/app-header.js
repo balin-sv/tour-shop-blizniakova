@@ -45,6 +45,11 @@ const AppHeader = () => {
                   Tickets
                 </Link>
               </li>
+              <li class="nav-item">
+                <Link to={"/cart"} className="nav-link" href="#">
+                  Cart
+                </Link>
+              </li>
             </ul>
             <form class="d-flex">
               <input
