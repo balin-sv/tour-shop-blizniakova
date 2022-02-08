@@ -10,7 +10,7 @@ const ItemDetail = ({ data }) => {
         <img
           className="col-6 img-fluid"
           alt="Responsive image"
-          src={data.img}
+          src={data.imgURL}
         ></img>
         <div className="col-6">
           <h1>{data.name}</h1>

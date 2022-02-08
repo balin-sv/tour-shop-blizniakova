@@ -17,10 +17,10 @@ const Cart = () => {
       a.push(item.total);
     });
 
-    const b = a.reduce((a, b) => {
+    const total = a.reduce((a, b) => {
       return a + b;
     });
-    return <h1>TOTAL A PAGAR {b} USD</h1>;
+    return <h1>TOTAL A PAGAR {total} USD</h1>;
   }
 
   return (

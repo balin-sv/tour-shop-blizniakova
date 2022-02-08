@@ -5,7 +5,6 @@ import { CartContext } from "../context/cart-context";
 
 const CartWidget = () => {
   const value = useContext(CartContext);
-  console.log(value);
   return (
     <div>
       <FontAwesomeIcon size="lg" icon={faCartArrowDown} />

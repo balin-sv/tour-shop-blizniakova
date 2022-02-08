@@ -3,13 +3,14 @@ import Item from "../item";
 
 const ItemList = ({ data }) => {
   const itemList = data.map((item) => {
+    console.log(item);
     return (
       <>
         <Item
           key={item.id}
           title={item.name}
           price={item.price}
-          img={item.img}
+          img={item.imgURL}
           category={item.category}
           id={item.id}
         />

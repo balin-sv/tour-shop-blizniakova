@@ -16,7 +16,7 @@ const ItemCount = ({ data }) => {
   }, [startDate]); // para que cambia el valor de count cuando se cambia la fecha
 
   function increnemt() {
-    if (count !== data.vacant) {
+    if (count !== data.stock``) {
       setCount(count + 1);
     }
   }
