@@ -3,7 +3,7 @@ import Item from "../item";
 
 const ItemList = ({ data }) => {
   const itemList = data.map((item) => {
-    console.log(item);
+    console.log("itemList ", item.id);
     return (
       <>
         <Item
@@ -13,6 +13,7 @@ const ItemList = ({ data }) => {
           img={item.imgURL}
           category={item.category}
           id={item.id}
+          itemID={item.itemID}
         />
       </>
     );

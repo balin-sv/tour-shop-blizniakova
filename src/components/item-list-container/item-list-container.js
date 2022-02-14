@@ -5,12 +5,12 @@ import ItemList from "../item-list";
 
 import "./item-list-container.css";
 
-const ItemListContainer = (props) => {
-  console.log(props);
+const ItemListContainer = ({ data }) => {
+  console.log(data);
   return (
     <div className="item-container">
       {/* <ItemCount data={data} onAdd={onAddHandler} /> */}
-      <ItemList data={props.data} />
+      <ItemList data={data} />
     </div>
   );
 };

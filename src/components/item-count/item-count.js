@@ -7,16 +7,28 @@ import { CartContext } from "../context/cart-context";
 
 const ItemCount = ({ data }) => {
   const [count, setCount] = useState(1);
+  const [max, setMax] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
   const value = useContext(CartContext);
 
   useEffect(() => {
-    setCount(1);
-  }, [startDate]); // para que cambia el valor de count cuando se cambia la fecha
+    // } else {
+    //   const uid = data.itemID;
+    //   const aux = value.items.filter((item) => {
+    //     console.log(uid);
+    //     console.log(item.data.itemID);
+    //     return uid === item.data.itemID;
+    //   });
+    if (data.stock > 0) {
+      setCount(1);
+    } else {
+      setCount(0);
+    }
+  }, []);
 
   function increnemt() {
-    if (count !== data.stock``) {
+    if (count !== data.stock) {
       setCount(count + 1);
     }
   }
@@ -50,7 +62,8 @@ const ItemCount = ({ data }) => {
         <div className="col-3">
           <div className="row counter-number">
             <span>
-              Cupos disponibles: <span className="vacant">{data.vacant}</span>
+              Cupos disponibles:
+              <span className="vacant">{data.stock}</span>
             </span>
           </div>
           <div className="row row-align mt-2">
@@ -90,6 +103,51 @@ const ItemCount = ({ data }) => {
         </div>
       </div>
     </div>
+    // <div className="container mt-3">
+    //   <div className="row">
+    //     <div className="col-3">
+    //       <div className="row counter-number">
+    //         <span>
+    //           Cupos disponibles: <span className="vacant">{data.vacant}</span>
+    //         </span>
+    //       </div>
+    //       <div className="row row-align mt-2">
+    //         <button
+    //           className="col-5"
+    //           onClick={increnemt}
+    //           className="col-2 btn btn-secondary"
+    //         >
+    //           +
+    //         </button>
+    //         <span className=" col-5 count-input ">{count}</span>
+    //         <button
+    //           className="col-4"
+    //           onClick={decrement}
+    //           className="col-2 btn btn-secondary"
+    //         >
+    //           -
+    //         </button>
+    //       </div>
+    //       <div className="row mt-2">
+    //         <button
+    //           onClick={() => {
+    //             goToCart(data, count, startDate);
+    //           }}
+    //           className="col-12 btn btn-success"
+    //         >
+    //           Reservar
+    //         </button>
+    //       </div>
+    //     </div>
+    //     <div className="col-6">
+    //       <DatePicker
+    //         selected={startDate}
+    //         onChange={(date) => setStartDate(date)}
+    //         inline
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

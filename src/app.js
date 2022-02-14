@@ -6,24 +6,31 @@ import Layout from "./components/layout";
 import Tickets from "./components/pages/tickets";
 import Tours from "./components/pages/tours";
 import Detale from "./components/pages/detale";
-import Cart from "./components/pages/cart";
+import Cart from "./components/pages/cart/cart";
+import Search from "./components/pages/search";
+import Admin from "./components/pages/admin";
 import { CartProvider } from "./components/context/cart-context";
+import { SearchProvider } from "./components/context/search-context";
 
 const App = () => {
   return (
     <>
       <CartProvider>
         <BrowserRouter>
-          <AppHeader />
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="/tours" element={<Tours />} />
-              <Route path="/tickets" element={<Tickets />} />
-              <Route path="/:category/:id" element={<Detale />} />
-              <Route path="/Cart" element={<Cart />} />
-            </Route>
-          </Routes>
+          <SearchProvider>
+            <AppHeader />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="/tours" element={<Tours />} />
+                <Route path="/tickets" element={<Tickets />} />
+                <Route path="/:category/:id" element={<Detale />} />
+                <Route path="/Cart" element={<Cart />} />
+                <Route path="/Search" element={<Search />} />
+                <Route path="/Admin" element={<Admin />} />
+              </Route>
+            </Routes>
+          </SearchProvider>
         </BrowserRouter>
       </CartProvider>
     </>

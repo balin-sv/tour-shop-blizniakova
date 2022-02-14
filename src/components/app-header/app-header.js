@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "../cart-widget/cart-widget";
+import { SearchContext } from "../context/search-context";
 
 const AppHeader = () => {
+  const value = useContext(SearchContext);
+  const [inpVal, setInpVal] = useState("");
+  const handleChange = function (e) {
+    setInpVal(e.target.value);
+  };
+
+  useEffect(() => {
+    //para que onChange no se tarda
+    console.log(inpVal);
+  }, [inpVal]);
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -46,8 +58,19 @@ const AppHeader = () => {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex">
+            <form
+              onSubmit={(e) => {
+                value.onClickHandler(inpVal);
+                setInpVal("");
+                e.preventDefault();
+              }}
+              class="d-flex"
+            >
               <input
+                value={inpVal}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
                 class="form-control me-sm-2"
                 type="text"
                 placeholder="Search"
