@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react";
 import { collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { CartContext } from "../../context/cart-context";
-import Item from "../../item";
 import { doc, getDoc } from "firebase/firestore";
 
 const OrderForm = ({ totalPrice }) => {
@@ -53,13 +52,11 @@ const OrderForm = ({ totalPrice }) => {
   }
 
   useEffect(() => {
-    console.log("change");
     if (value.isAdded) {
       function switchIsAdded() {
         value.setIsAdded(false);
       }
-      setTimeout(switchIsAdded, 5000);
-      value.setIsEmpty(true);
+      setTimeout(switchIsAdded, 3000);
     }
   }, [value.isAdded]);
 

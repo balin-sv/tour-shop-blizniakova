@@ -29,7 +29,6 @@ const Tickets = () => {
         newArr.push(b);
       });
       setItems((prev) => newArr);
-      console.log(items);
     };
     getFirebaseData();
   }, []);

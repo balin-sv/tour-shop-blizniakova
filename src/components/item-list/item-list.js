@@ -3,9 +3,9 @@ import Item from "../item";
 
 const ItemList = ({ data }) => {
   const itemList = data.map((item) => {
-    console.log("itemList ", item.id);
     return (
       <>
+        {console.log("unique key: ", item.id)}
         <Item
           key={item.id}
           title={item.name}

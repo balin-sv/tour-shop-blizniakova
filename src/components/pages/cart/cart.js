@@ -25,6 +25,12 @@ const Cart = () => {
     }
   }, [value.items]);
 
+  useEffect(() => {
+    if (value.isAdded) {
+      value.setItems((prev) => []);
+    }
+  }, [value.isAdded]);
+
   const onConfirm = () => {
     value.setIsAdded(false);
   };
@@ -33,7 +39,8 @@ const Cart = () => {
     <>
       <h1>Cart</h1>
       <div className="container">
-        <div>Total en el carrito: {value.getCartQuantity()}</div>
+        <div>Total en el carrito: {value.items.length}</div>
+
         <div>
           {value.items.map((item) => {
             return (
@@ -78,18 +85,9 @@ const Cart = () => {
                 }}
               >
                 Espera 2 segundos o preciona ok
-              </SweetAlert> // <div
-            ) : //   style={{
-            //     position: "absolute",
-            //     top: 0,
-            //     left: 0,
-            //     width: "100%",
-            //     height: "50%",
-            //     backgroundColor: "rgba(114, 155, 67,0.7)",
-            //   }}
-            // ></div>
-            null}
-            {value.isEmpty ? (
+              </SweetAlert>
+            ) : null}
+            {value.items.length == 0 ? (
               <>
                 <Link className="btn btn-success" to={"/"}>
                   a las compras

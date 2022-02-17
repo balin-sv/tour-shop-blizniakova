@@ -18,7 +18,6 @@ const Admin = () => {
     const storage = getStorage();
     const storageRef = ref(storage, `images/${productImg.name}`);
     const snapshot = await uploadBytes(storageRef, productImg);
-    console.log("Uploaded file! ", snapshot);
     imgURL = await getDownloadURL(snapshot.ref);
 
     const newObj = {
@@ -29,15 +28,7 @@ const Admin = () => {
       price: productPrice,
       stock: productQuantity,
     };
-    console.log(newObj);
 
-    // for (let prop in newObj) {
-    //   if (!newObj[prop]) {
-    //     console.log("zapolnite vse polya");
-    //     isFull = false;
-    //     break;
-    //   }
-    // }
     const docRef = await addDoc(collection(db, "items"), newObj);
     console.log("Document written with ID: ", docRef.id, docRef);
     setIsAdded(true);
@@ -52,7 +43,6 @@ const Admin = () => {
       setProductQuantity("");
       setProductImg("");
       setProductPrice("");
-      setIsAdded("");
       setIsAdded(false);
     } else {
       return;

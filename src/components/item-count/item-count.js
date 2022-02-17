@@ -13,13 +13,6 @@ const ItemCount = ({ data }) => {
   const value = useContext(CartContext);
 
   useEffect(() => {
-    // } else {
-    //   const uid = data.itemID;
-    //   const aux = value.items.filter((item) => {
-    //     console.log(uid);
-    //     console.log(item.data.itemID);
-    //     return uid === item.data.itemID;
-    //   });
     if (data.stock > 0) {
       setCount(1);
     } else {

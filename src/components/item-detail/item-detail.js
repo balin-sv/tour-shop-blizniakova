@@ -6,7 +6,6 @@ import { CartContext, CartProvider } from "../context/cart-context";
 const ItemDetail = ({ data }) => {
   const value = useContext(CartContext);
 
-  console.log(data);
   return (
     <>
       <div class="container">

@@ -26,7 +26,6 @@ const Home = () => {
 
   return (
     <div>
-      {console.log(items)}
       <ItemListContainer data={items} />
     </div>
   );

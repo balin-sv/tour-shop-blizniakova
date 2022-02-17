@@ -6,7 +6,6 @@ import ItemList from "../item-list";
 import "./item-list-container.css";
 
 const ItemListContainer = ({ data }) => {
-  console.log(data);
   return (
     <div className="item-container">
       {/* <ItemCount data={data} onAdd={onAddHandler} /> */}
