@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ItemListContainer from "../item-list-container";
-import { getAllItemsList } from "../services";
 import {
   collection,
   getDocs,

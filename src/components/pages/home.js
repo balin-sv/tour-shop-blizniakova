@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { CartContext, CartProvider } from "../context/cart-context";
 import { useOutletContext } from "react-router-dom";
 import ItemListContainer from "../item-list-container";
-import { getAllItemsList } from "../services";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
