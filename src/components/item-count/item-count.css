@@ -12,5 +12,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: rgb(68, 65, 65);
+}
+.btn-count {
+  width: 80px;
+}
+.btn-box {
+  width: 300px;
+}
+.btn-buy {
+  width: 100%;
 }

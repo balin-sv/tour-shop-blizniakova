@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import Utils from "../utils";
+import Utils from "../../utils";
 import SweetAlert from "react-bootstrap-sweetalert/dist/components/SweetAlert";
-const Admin = () => {
+
+const AdminDashboard = ({ setIsLoged }) => {
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [img, setImg] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
   const [isAdded, setIsAdded] = useState(false);
-  console.log(isAdded);
   const utils = new Utils();
+
+  useEffect(() => {
+    if (isAdded) {
+      setName("");
+      setCategory("");
+      setDescription("");
+      setImg("");
+      setPrice("");
+      setStock("");
+    } else {
+      return;
+    }
+  }, [isAdded]);
 
   async function addImgToStorage(img) {
     try {
@@ -22,26 +41,13 @@ const Admin = () => {
     }
   }
 
-  async function addProbuctToFirebase(newObj) {
-    try {
-      const docRef = await addDoc(collection(db, "items"), newObj);
-      console.log("Document written with ID: ", docRef.id, docRef);
-      setIsAdded(true);
-      console.log("sucsses, is ADDED", isAdded);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     let imgURL = "";
     let errorsToAlert = [];
-    const category = utils.checkRadioBtns(e.target.productCategory);
     if (!category) {
       errorsToAlert.push("tienes que elegir categoria!\n");
     }
-    const name = e.target.productName.value.trim().toLowerCase();
     if (!name) {
       errorsToAlert.push("escribe nombre del producto!\n");
     } else if (!utils.checkName(name)) {
@@ -49,42 +55,35 @@ const Admin = () => {
         "el nombre del producto debe tener solo letras y espacios!\n"
       );
     }
-    let description = e.target.productDescription.value.trim();
-    if (description === "" || description.length < 5) {
-      description = "producto no tiene descripcion todavia";
+    if (description.length < 5) {
+      console.log("descr");
+      setDescription("producto no tiene descripcion todavia");
+      console.log(description);
     }
-
-    const price = +e.target.productPrice.value.trimStart("0");
-    const stock = +e.target.productQuantity.value.trimStart("0");
 
     if (errorsToAlert.length > 0) {
       return alert(errorsToAlert);
     }
-
-    const img = e.target.productImg.value[0];
     if (!img) {
       imgURL =
         "https://htyband.com/wp-content/uploads/2017/06/comingsoon-1.png";
     } else {
+      console.log(img);
       imgURL = await addImgToStorage(img);
     }
 
-    const newObj = {
+    const newItemRef = doc(collection(db, "items"));
+    console.log(description);
+    await setDoc(newItemRef, {
       category,
       name,
       description,
       imgURL,
-      price,
-      stock,
-    };
-
-    console.log(newObj);
-
-    addProbuctToFirebase(newObj);
-  };
-
-  const reload = () => {
-    window.location.reload();
+      itemID: newItemRef.id,
+      price: +price,
+      stock: +stock,
+    });
+    setIsAdded(true);
   };
 
   return (
@@ -93,9 +92,11 @@ const Admin = () => {
         <SweetAlert
           success
           title="Item agregado con exito!"
-          reload={setTimeout(reload, 2000)}
+          reload={setTimeout(() => {
+            setIsAdded(false);
+          }, 2000)}
           onConfirm={() => {
-            window.location.reload();
+            setIsAdded(false);
           }}
         ></SweetAlert>
       ) : (
@@ -106,6 +107,9 @@ const Admin = () => {
                 Nombre del producto
               </label>
               <input
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
                 name="productName"
                 type="text"
                 className="form-control"
@@ -118,10 +122,12 @@ const Admin = () => {
               <br />
               <div class="form-check">
                 <input
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                  }}
                   value="tours"
                   class="form-check-input"
                   type="radio"
-                  name="productCategory"
                   id="flexRadioDefault1"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
@@ -130,10 +136,12 @@ const Admin = () => {
               </div>
               <div class="form-check">
                 <input
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                  }}
                   value="tickets"
                   class="form-check-input"
                   type="radio"
-                  name="productCategory"
                   id="flexRadioDefault2"
                 />
                 <label class="form-check-label" for="flexRadioDefault2">
@@ -146,7 +154,10 @@ const Admin = () => {
                 Descripcion
               </label>
               <textarea
-                name="productDescription"
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                type="text"
                 placeholder="Detalle del producto"
                 className="form-control"
                 id="descriptionInput"
@@ -158,7 +169,11 @@ const Admin = () => {
                 Subir Imagen
               </label>
               <input
-                name="productImg"
+                onChange={(e) => {
+                  console.log(img);
+                  setImg(e.target.files[0]);
+                  console.log(img.name);
+                }}
                 type="file"
                 className="custom-file-input"
                 id="fileInput"
@@ -171,7 +186,9 @@ const Admin = () => {
                 Precio
               </label>
               <input
-                name="productPrice"
+                onChange={(e) => {
+                  setPrice(e.target.value.trimStart("0"));
+                }}
                 type="number"
                 className="custom-file-input"
                 id="priceInput"
@@ -184,7 +201,9 @@ const Admin = () => {
                 Cantidad
               </label>
               <input
-                name="productQuantity"
+                onChange={(e) => {
+                  setStock(e.target.value.trimStart("0"));
+                }}
                 placeholder="Cantidad"
                 className="form-control"
                 type="number"
@@ -193,9 +212,20 @@ const Admin = () => {
                 max="100"
               />
             </div>
-            <button type="submit" className="btn btn-success mt-3 mb-5">
-              Agregar producto
-            </button>
+            <div className="d-flex justify-content-between">
+              <button type="submit" className="btn btn-success mt-3 mb-5">
+                Agregar producto
+              </button>
+              <button
+                className="btn btn-danger mt-3 mb-5"
+                onClick={() => {
+                  setIsLoged(false);
+                  window.location.reload();
+                }}
+              >
+                Terminar la session
+              </button>
+            </div>
           </form>
         </div>
       )}
@@ -203,4 +233,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminDashboard;

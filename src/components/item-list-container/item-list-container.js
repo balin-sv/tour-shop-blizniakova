@@ -8,7 +8,6 @@ import "./item-list-container.css";
 const ItemListContainer = ({ data }) => {
   return (
     <div className="item-container">
-      {/* <ItemCount data={data} onAdd={onAddHandler} /> */}
       <ItemList data={data} />
     </div>
   );

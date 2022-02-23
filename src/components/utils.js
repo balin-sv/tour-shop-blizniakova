@@ -1,7 +1,11 @@
 export default class Utils {
   constructor() {}
 
-  checkEmail() {}
+  checkEmail(email) {
+    const regexp =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return regexp.test(email);
+  }
 
   checkName(name) {
     let regexp = /^[a-zA-Z\s]*$/;
@@ -17,10 +21,6 @@ export default class Utils {
     });
     return result;
   }
-
-  checkPhone() {}
-
-  checkPassword() {}
 
   // constructor() {
   //   this._urlBase = "https://swapi.dev/api";

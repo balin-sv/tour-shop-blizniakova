@@ -1,4 +1,5 @@
 .card {
+  /* max-height: fit-content; */
   width: 18rem;
   color: black;
   border: 2px solid gray;

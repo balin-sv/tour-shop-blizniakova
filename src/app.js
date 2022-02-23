@@ -8,10 +8,9 @@ import Tours from "./components/pages/tours";
 import Detale from "./components/pages/detale";
 import Cart from "./components/pages/cart/cart";
 import Search from "./components/pages/search";
-import Admin from "./components/pages/admin";
+import Admin from "./components/pages/admin/admin";
 import { CartProvider } from "./components/context/cart-context";
 import { SearchProvider } from "./components/context/search-context";
-
 const App = () => {
   return (
     <>

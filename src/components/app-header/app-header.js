@@ -3,41 +3,35 @@ import { Link } from "react-router-dom";
 import CartWidget from "../cart-widget/cart-widget";
 import { SearchContext } from "../context/search-context";
 import "./app-header.css";
+import Utils from "../utils";
 
 const AppHeader = () => {
+  const util = new Utils();
   const value = useContext(SearchContext);
   const [inputVal, setInpVal] = useState("");
-  const handleChange = function (e) {
-    setInpVal(e.target.value);
-  };
-
-  useEffect(() => {}, [inputVal]);
 
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-primary ">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link to={"/cart"} className="navbar-brand" href="#">
           <CartWidget />
-        </a>
+        </Link>
         <button
-          className="navbar-toggler"
+          class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarColor01"
-          aria-controls="navbarColor01"
+          data-bs-target="#navbar"
+          aria-controls="navbar"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="navbarColor01">
+        <div className="collapse navbar-collapse" id="navbar">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <Link to={"/"} className="nav-link">
                 Home
-                {/* <span className
-                  ="visually-hidden">(current)</span> */}
               </Link>
             </li>
             <li className="nav-item">
@@ -58,16 +52,26 @@ const AppHeader = () => {
           </ul>
           <form
             onSubmit={(e) => {
-              value.onClickHandler(inputVal);
-              setInpVal("");
               e.preventDefault();
+              if (inputVal === "") {
+                alert("debe escribir algo");
+                return;
+              }
+
+              if (!util.checkName(inputVal.trim())) {
+                alert("solo se aceptan letras");
+                return;
+              } else {
+                value.onClickHandler(inputVal);
+              }
+              setInpVal("");
             }}
             className="d-flex"
           >
             <input
               value={inputVal}
               onChange={(e) => {
-                handleChange(e);
+                setInpVal(e.target.value);
               }}
               className="form-control me-sm-2"
               type="text"

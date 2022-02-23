@@ -1,26 +1,34 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { CartContext, CartProvider } from "../context/cart-context";
+import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import ItemListContainer from "../item-list-container";
-import { collection, getDocs } from "firebase/firestore";
+
+import FirebaseService from "../firebase-service";
 import { db } from "../../firebase";
+import { collection, query } from "firebase/firestore";
 
 const Home = () => {
+  const { setIsLoaded } = useOutletContext();
   const [items, setItems] = useState([]);
+  const fbService = new FirebaseService();
 
   useEffect(() => {
-    const getFirebaseData = async () => {
-      const query = collection(db, "items");
-      const snapshot = await getDocs(query);
-      let newArr = [];
-      snapshot.forEach((doc) => {
-        const a = doc.data();
-        const b = { ...a, id: doc.id };
-        newArr.push(b);
-      });
-      setItems((prev) => newArr);
-    };
-    getFirebaseData();
+    let mounted = true;
+    setIsLoaded(true);
+    (async () => {
+      try {
+        const q = query(collection(db, "items"));
+        const res = await fbService.getItemsByQuery(q);
+        if (mounted) {
+          setItems((prev) => res);
+          setTimeout(() => {
+            setIsLoaded(false);
+          }, 500);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+    return () => (mounted = false);
   }, []);
 
   return (

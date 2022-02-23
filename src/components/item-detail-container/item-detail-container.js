@@ -1,11 +1,12 @@
 import React from "react";
 import ItemDetail from "../item-detail";
+import "./item-detail-container.css";
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = ({ data, max }) => {
   return (
-    <>
-      <ItemDetail data={props.data} />
-    </>
+    <div>
+      <ItemDetail data={data} max={max} />
+    </div>
   );
 };
 

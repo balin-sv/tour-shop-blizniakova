@@ -5,23 +5,14 @@ import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { CartContext } from "../context/cart-context";
 
-const ItemCount = ({ data }) => {
-  const [count, setCount] = useState(1);
-  const [max, setMax] = useState();
+const ItemCount = ({ data, max }) => {
+  const [count, setCount] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
   const value = useContext(CartContext);
 
-  useEffect(() => {
-    if (data.stock > 0) {
-      setCount(1);
-    } else {
-      setCount(0);
-    }
-  }, []);
-
   function increnemt() {
-    if (count !== data.stock) {
+    if (count !== max) {
       setCount(count + 1);
     }
   }
@@ -32,129 +23,60 @@ const ItemCount = ({ data }) => {
     }
   }
 
-  const goToCart = (data, qty, startDate) => {
+  const goToCart = (data, count, startDate) => {
     const newObj = {
       id: value.generateItemID(),
       data: data,
       price: data.price,
-      qty: qty,
+      qty: count,
       date: startDate,
       total: (function () {
-        return data.price * qty;
+        return data.price * count;
       })(),
     };
 
     value.addItem(newObj);
-
     navigate("/cart");
   };
 
   return (
-    <div className="container mt-3">
-      <div className="row">
-        <div className="col-3">
-          <div className="row counter-number">
-            <span>
-              Cupos disponibles:
-              <span className="vacant">{data.stock}</span>
-            </span>
-          </div>
-          <div className="row row-align mt-2">
-            <button
-              className="col-5"
-              onClick={increnemt}
-              className="col-2 btn btn-secondary"
-            >
-              +
-            </button>
-            <span className=" col-5 count-input ">{count}</span>
-            <button
-              className="col-4"
-              onClick={decrement}
-              className="col-2 btn btn-secondary"
-            >
-              -
-            </button>
-          </div>
-          <div className="row mt-2">
-            <button
-              onClick={() => {
-                goToCart(data, count, startDate);
-              }}
-              className="col-12 btn btn-success"
-            >
-              Reservar
-            </button>
-          </div>
-        </div>
-        <div className="col-6">
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            inline
-          />
-        </div>
+    <div className="d-flex flex-column">
+      <div className="counter-number">
+        Cupos disponibles:
+        <span className="vacant">{max}</span>
+      </div>
+      <div className="btn-box mt-2 d-flex justify-content-between flex-nowrap">
+        <button onClick={increnemt} className="btn-count btn btn-secondary">
+          +
+        </button>
+        <span className=" count-input ">{count}</span>
+        <button onClick={decrement} className="btn-count btn btn-secondary">
+          -
+        </button>
+      </div>
+      <div className="btn-box mt-2">
+        {max === 0 ? (
+          <button className="btn-buy btn btn-secondary">No hay cupos</button>
+        ) : (
+          <button
+            onClick={() => {
+              goToCart(data, count, startDate);
+            }}
+            className="btn-buy btn btn-success"
+          >
+            Reservar
+          </button>
+        )}
+      </div>
+      <div className="mt-4">
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          inline
+        />
       </div>
     </div>
-    // <div className="container mt-3">
-    //   <div className="row">
-    //     <div className="col-3">
-    //       <div className="row counter-number">
-    //         <span>
-    //           Cupos disponibles: <span className="vacant">{data.vacant}</span>
-    //         </span>
-    //       </div>
-    //       <div className="row row-align mt-2">
-    //         <button
-    //           className="col-5"
-    //           onClick={increnemt}
-    //           className="col-2 btn btn-secondary"
-    //         >
-    //           +
-    //         </button>
-    //         <span className=" col-5 count-input ">{count}</span>
-    //         <button
-    //           className="col-4"
-    //           onClick={decrement}
-    //           className="col-2 btn btn-secondary"
-    //         >
-    //           -
-    //         </button>
-    //       </div>
-    //       <div className="row mt-2">
-    //         <button
-    //           onClick={() => {
-    //             goToCart(data, count, startDate);
-    //           }}
-    //           className="col-12 btn btn-success"
-    //         >
-    //           Reservar
-    //         </button>
-    //       </div>
-    //     </div>
-    //     <div className="col-6">
-    //       <DatePicker
-    //         selected={startDate}
-    //         onChange={(date) => setStartDate(date)}
-    //         inline
-    //       />
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
 export default ItemCount;
-
-// onClick={() => {
-//   onAdd(count);
-//   setCount((prev) => {
-//     let aux = prev;
-//     if (data.cupos - prev <= 0) {
-//       aux = 0;
-//     } else {
-//       aux = 1;
-//     }
-//     return aux;
-//   });
-// }}

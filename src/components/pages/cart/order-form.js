@@ -4,16 +4,22 @@ import { collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { CartContext } from "../../context/cart-context";
 import { doc, getDoc } from "firebase/firestore";
+import Utils from "../../utils";
 
 const OrderForm = ({ totalPrice }) => {
+  const utils = new Utils();
   const value = useContext(CartContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   // Add a new document with a generated id.
-  async function addOrderToFirebase() {
+  async function addOrderToFirebase(e) {
+    e.preventDefault();
     console.log(name);
+    if (name == "" || email == "" || phone == "") {
+      return alert("hay que llenar todos los campos");
+    }
     const newObj = {
       orders: value.items,
       name: name,
@@ -67,7 +73,11 @@ const OrderForm = ({ totalPrice }) => {
           TOTAL A PAGAR <span>{totalPrice} </span>USD
         </h4>
         <p>Llena el formulario y finaliza la compra</p>
-        <form>
+        <form
+          onSubmit={(e) => {
+            addOrderToFirebase(e);
+          }}
+        >
           <div class="form-group mt-3">
             <input
               value={name}
@@ -103,19 +113,12 @@ const OrderForm = ({ totalPrice }) => {
               class="form-control"
               placeholder="Telefono: 123-456-7890"
               name="phone"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               required
             />
           </div>
 
-          <button
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              addOrderToFirebase();
-            }}
-            className="btn btn-success mt-2"
-          >
+          <button type="submit" className="btn btn-success mt-2">
             Finalizar la compra
           </button>
         </form>
