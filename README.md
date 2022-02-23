@@ -1,6 +1,9 @@
 Deploy#
 https://oujru.csb.app/
 
+Video#
+https://user-images.githubusercontent.com/69285146/155344572-72d49c74-9143-4446-974c-f7c8d08613a1.mp4
+
 El proyecto realizado es una tienda online que vende exccurciones y pasajes realizado a base de ReactJS, Bootstrap5 y Firebase.
 Tiene siguiente funcionalidad:
 - 3 páginas principales que filtran productos por categorías
